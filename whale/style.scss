@@ -1,0 +1,465 @@
+$background: #e4f4fd;
+
+// whale related 
+$whale: #37b1d9;
+$border: #364548;
+
+$eye: #364548;
+$smile: #364548;
+
+// container
+$light-container: #34bbde;
+$dark-container: #23a3c2;
+
+// waves
+$wave-middle: #40c0ef;
+$wave-middle-bottom: #04b7f1;
+
+$wave-back: #79d1f3;
+$wave-deep-back: #a5def4;
+
+body {
+  background-color: $background;
+}
+
+// ============================== [WHALE] ==============================
+
+.whale {
+  background-color: $whale;
+  height: 80px;
+  width: 280px;
+  left: 50%;
+  top: 55%;
+  margin: -120px;
+  margin-top: -100px;
+  position: absolute;
+  border-bottom-left-radius: 100% 180%;
+  border-bottom-right-radius: 150% 250%;
+  border: 5px solid $border;
+  z-index: 1;
+  animation: bounce 1.0s infinite;
+}
+
+// ============================== [EYE] ==============================
+
+.eye {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: $eye;
+  border: 2px solid white;
+  top: 25px;
+  left: 80px;
+  border-radius: 25px;
+}
+
+.iris {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  top: 0px;
+  left: 7px;
+  border-radius: 25px;
+}
+
+// ============================== [SMILE AND MOUTH] ==============================
+
+.smile {
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  top: 28px;
+  left: 14px;
+  border: solid 5px #000;
+  border-color: $smile transparent transparent transparent;
+  border-radius: 50%/1px 70% 0px 0px;
+  transform: scaleX(-1) rotate(180deg);
+}
+
+.mouth {
+  position: absolute;
+  background-color: white;
+  width: 50px;
+  height: 10px;
+  top: -15px;
+  left: 7px;
+  border-radius: 100% 0px 0px;
+}
+
+.mouth1 {
+  position: absolute;
+  background-color: white;
+  width: 50px;
+  height: 10px;
+  top: -19px;
+  left: 16px;
+  border-radius: 100% 0px 0px;
+}
+
+.mouth2 {
+  position: absolute;
+  background-color: white;
+  width: 50px;
+  height: 10px;
+  top: -22px;
+  left: 25px;
+  border-radius: 100% 100% 0px 0px;
+  transform: rotate(-12deg);
+}
+
+.mouth3 {
+  position: absolute;
+  background-color: transparent;
+  width: 52px;
+  height: 7px;
+  top: -20px;
+  left: 44px;
+  position: absolute;
+  border: solid 6.5px #000;
+  border-color: white transparent transparent transparent;
+  border-radius: 90%/100% 100% 0 0;
+  transform: rotate(-27deg);
+}
+
+.mouth4 {
+  position: absolute;
+  background-color: white;
+  width: 54px;
+  height: 8px;
+  top: -26px;
+  left: 41px;
+  border-radius: 90%/60% 100% 0px 0px;
+  transform: rotate(-8deg);
+}
+
+.mouth5 {
+  position: absolute;
+  background-color: transparent;
+  width: 54px;
+  height: 1px;
+  top: -22px;
+  left: 45px;
+  border: solid 5.5px #000;
+  border-color: white transparent transparent transparent;
+  border-radius: 90%/100% 100% 0 0;
+  transform: rotate(-16deg);
+}
+
+.mouth6 {
+  position: absolute;
+  background-color: transparent;
+  width: 34px;
+  height: 4px;
+  top: -10px;
+  left: 15px;
+  border: solid 5.5px #000;
+  border-color: white transparent transparent transparent;
+  border-radius: 58%/30% 100% 0 0;
+  transform: rotate(3deg);
+}
+
+// ============================== [CONNECTION TO FIN] ==============================
+
+.bridge-left {
+  background-color: transparent;
+  height: 89px;
+  width: 80px;
+  position: absolute;
+  z-index: 2;
+  top: -129%;
+  left: 73%;
+  border: solid 5px $border;
+  border-color: $border transparent transparent transparent;
+  border-radius: 60%/20px 60px 0 0;
+  transform: rotate(-26deg) scaleY(-1);
+}
+
+.bridge-fill-left div {
+  background-color: transparent;
+  height: 89px;
+  width: 80px;
+  position: absolute;
+  z-index: 5;
+  top: -129%;
+  left: 73%;
+  border: solid 5px $whale;
+  border-color: $whale transparent transparent transparent;
+  border-radius: 60%/20px 60px 0 0;
+  transform: rotate(-26deg) scaleY(-1);
+  &:nth-child(1) {
+    margin-top: 5px;
+  }
+  &:nth-child(2) {
+    margin-top: 10px;
+  }
+  &:nth-child(3) {
+    margin-top: 12px;
+  }
+}
+
+.bridge-right {
+  background-color: transparent;
+  height: 89px;
+  width: 60px;
+  position: absolute;
+  z-index: 2;
+  top: -20%;
+  left: 103%;
+  border: solid 5px $border;
+  border-color: $border transparent transparent transparent;
+  border-radius: 70%/20px 20px 0 0;
+  transform: rotate(-43deg);
+}
+
+.bridge-fill-right div {
+  background-color: transparent;
+  height: 89px;
+  width: 80px;
+  position: absolute;
+  z-index: 5;
+  top: -34%;
+  left: 102%;
+  border: solid 5px $whale;
+  border-color: $whale transparent transparent transparent;
+  border-radius: 60%/20px 60px 0 0;
+  transform: rotate(-48deg);
+
+  &:nth-child(1) {
+    margin-left: -7px;
+    transform: rotate(-43deg);
+  }
+  &:nth-child(2) {
+    margin-left: -10px;
+  }
+  &:nth-child(3) {
+    margin-left: -13px;
+  }
+  &:nth-child(4) {
+    margin-left: -5px;
+    margin-top: 6px;
+    height: 89px;
+    width: 70px;
+    transform: rotate(-43deg);
+    border-radius: 60%/20px 40px 0 0;
+  }
+}
+
+// ============================== [FINS] ==============================
+
+.fin div {
+  background-color: $whale;
+  height: 39px;
+  width: 45px;
+  position: absolute;
+  border-bottom-left-radius: 100% 100%;
+  border-top-right-radius: 100% 100%;
+  border: 5px solid $border;
+  z-index: 2;
+}
+
+.fin-left {
+  top: -65px;
+  left: 255px;
+  transform: rotate(40deg);
+}
+
+.fin-right {
+  top: -50px;
+  left: 288px;
+  transform: rotate(110deg);
+}
+
+// ============================== [CONTAINER] ==============================
+
+.container {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  height: 30px;
+  width: 27px;
+  border: 3px solid $border;
+}
+
+.container div {
+  width: 2px;
+  height: 25px;
+  margin-top: 3px;
+  background-color: $border;
+
+  // 
+  // lines on container 
+  //
+  &:nth-child(1) {
+    margin-left: 2px;
+  }
+  &:nth-child(2) {
+    margin-left: 6px;
+    margin-top: -25px;
+  }
+  &:nth-child(3) {
+    margin-left: 10px;
+    margin-top: -25px;
+  }
+  &:nth-child(4) {
+    margin-left: 14px;
+    margin-top: -25px;
+  }
+  &:nth-child(5) {
+    margin-left: 18px;
+    margin-top: -25px;
+  }
+  &:nth-child(6) {
+    margin-left: 22px;
+    margin-top: -25px;
+  }
+}
+
+//
+// position of each container of the whale
+//
+@for $i from 1 through 10 {
+  $top: 1;
+  $left: 8;
+  $index: $i;
+  .container#{$i} {
+    position: absolute;
+    @if ($i % 2)==0 {
+      background-color: $light-container;
+    }
+    @else {
+      background-color: $dark-container;
+    }
+    @if ($i > 6) {
+      $top: 1.9;
+      $left: 70;
+      $index: $i - 6;
+    }
+    @if ($i > 9) {
+      $top: 2.8;
+      $left: 163;
+      $index: $i - 10;
+    }
+    top: -37px * $top;
+    left: $left + (31px * $index);
+  }
+}
+
+// ============================== [WAVES] ==============================
+
+//
+// middle wave
+//
+.middle-wave .wave {
+  background: linear-gradient(white 20%, $wave-middle 70%, $wave-middle-bottom 100%);
+  position: absolute;
+  width: 150px;
+  height: 45px;
+}
+
+.middle-wave .wave div {
+  position: absolute;
+  width: 125px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: $background;
+  z-index: 0;
+  
+  //
+  // left and right wave
+  //
+  &:nth-child(1) {
+    top: -30px;
+    left: -50px;
+  }
+  &:nth-child(2) {
+    top: -30px;
+    right: -50px;
+  }
+}
+
+//
+// back wave
+//
+.back-wave .wave {
+  background: $wave-back;
+  position: absolute;
+  width: 300px;
+  height: 65px;
+}
+
+.back-wave .wave div {
+  position: absolute;
+  width: 251px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: $background;
+  z-index: 0;
+  
+  &:nth-child(1) {
+    top: -40px;
+    left: -100px;
+  }
+  &:nth-child(2) {
+    top: -40px;
+    right: -100px;
+  }
+} 
+
+//
+// wave deep in the back
+//
+.deep-back-wave .wave {
+  background: $wave-deep-back;
+  position: absolute;
+  width: 500px;
+  height: 65px;
+}
+
+.deep-back-wave .wave div {
+  position: absolute;
+  width: 401px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: $background;
+  z-index: 0;
+  
+  &:nth-child(1) {
+    top: -40px;
+    left: -150px;
+  }
+  &:nth-child(2) {
+    top: -40px;
+    right: -150px;
+  }
+}
+
+// ============================== [SUBWAVES] ==============================
+
+@mixin wave-types($width, $name, $top, $left) {
+  @for $i from 1 through 20 {
+    .#{$name}#{$i} {
+      top: $top;
+      left: $left + (($i - 1) * $width);
+    }
+  } 
+}
+
+@include wave-types(8, "mwave", 65%, -8%);
+@include wave-types(17, "bwave", 50%, -20%);
+@include wave-types(30, "dbwave", 40%, -20%);
+
+
+// ============================== [WHALE ANIMATION] ==============================
+
+@keyframes bounce {
+  0% {
+    transform: translate3d(0px, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0px, -4px, 0);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0);
+  }
+}
