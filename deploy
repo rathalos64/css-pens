@@ -1,0 +1,34 @@
+#!/bin/bash
+FILE=$1
+DIR=$2
+PORT=$3
+
+EXT=`echo $FILE | sed -E 's/^(.+?)\.(\w+)$/\2/'`
+if [[ $EXT == "css" ]]; then
+	exit 0
+fi
+
+# make
+RES=`make $DIR BIN=sassc`
+if [[ $RES == make:* ]]; then
+	exit
+fi
+
+DATE=`date +"%D %R:%S"`
+echo -e "[$DATE] \e[1m\e[32m$RES"
+
+ID=`docker ps --filter "name=$DIR" --format "{{.ID}}"`
+if [[ $ID == "" ]]; then
+	ID=`docker ps -a --filter "name=$DIR" --format "{{.ID}}"`
+	if [[ $ID != "" ]]; then
+		docker rm $ID
+	fi
+
+	ID=`docker run -dit -p$PORT:80 --name $DIR httpd`
+fi
+
+for FILE in `ls $DIR`; do
+	docker cp $DIR/$FILE $ID:/usr/local/apache2/htdocs/
+done
+
+printf "\e[0m"

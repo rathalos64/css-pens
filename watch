@@ -1,0 +1,51 @@
+#!/bin/bash
+if [[ $# -lt 4 ]]; then
+	echo "No arguments given. Abort."
+	exit
+fi
+
+while [[ $# -gt 1 ]]
+do
+key="$1"
+
+case $key in
+    -d|--dir)
+    DIR="$2"
+    shift
+	;;
+    -p|--PORT)
+    PORT="$2"
+    shift
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+shift # past argument or value
+done
+
+when-changed $DIR -c "bash deploy %f $DIR $PORT"
+
+# clean up created container
+DATE=`date +"%D %R:%S"`
+printf "\e[0m"
+echo -e "[$DATE] \e[1m\e[33mCleaning up"
+printf "\e[0m"
+
+PENS=`find . -maxdepth 1 -type d -name [^\.[^\.]\* | sed -E 's/\.\///'`
+
+for PEN in $PENS; do
+	RES=`docker ps  --format "{{.ID}} {{.Names}}"| grep $PEN`
+	ID=`echo $RES | cut -d ' ' -f1`
+
+	if [[ $ID == "" ]]; then
+		continue
+	fi
+
+	CONTAINER=`docker stop $ID`
+	echo -e "[$DATE] \e[1m\e[94mStopped container $CONTAINER"
+
+	docker rm $ID >> /dev/null
+done
+
+printf "\e[0m"
